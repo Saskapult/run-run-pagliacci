@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://b10drgg7lhb3e"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_8xtjb"]
+[ext_resource type="PackedScene" uid="uid://jfym5mhm1mf1" path="res://player/player.tscn" id="2_0na56"]
+[ext_resource type="PackedScene" uid="uid://c66el66qf2f86" path="res://stages/office.tscn" id="3_rsu58"]
+[ext_resource type="PackedScene" uid="uid://ul3ua4g3cqvu" path="res://void/void.tscn" id="4_otxp6"]
+[ext_resource type="PackedScene" uid="uid://cthmjiydcw2et" path="res://intro_ui/intro_ui.tscn" id="5_mrv4t"]
+[ext_resource type="PackedScene" uid="uid://cis7c8rg75c6k" path="res://doctor/doctor.tscn" id="6_mi8og"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_8xtjb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(160, 90)
+
+[node name="Player" parent="." instance=ExtResource("2_0na56")]
+position = Vector2(90, 141)
+
+[node name="Office" parent="." instance=ExtResource("3_rsu58")]
+
+[node name="Void" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_otxp6")]
+player = NodePath("../Player")
+
+[node name="IntroUi" parent="." instance=ExtResource("5_mrv4t")]
+position = Vector2(144, 72)
+scale = Vector2(0.5, 0.5)
+
+[node name="Doctor" parent="." instance=ExtResource("6_mi8og")]
+position = Vector2(126, 144)
+scale = Vector2(-1, 1)
+
+[connection signal="intro_done" from="IntroUi" to="." method="_on_intro_ui_intro_done"]

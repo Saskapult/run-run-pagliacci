@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cis7c8rg75c6k"]
+
+[ext_resource type="Texture2D" uid="uid://dynpex0i5lq0y" path="res://doctor/doctor.png" id="1_8m40c"]
+
+[node name="Doctor" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_8m40c")
