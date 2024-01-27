@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b10drgg7lhb3e"]
+[gd_scene load_steps=11 format=3 uid="uid://b10drgg7lhb3e"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_8xtjb"]
 [ext_resource type="PackedScene" uid="uid://jfym5mhm1mf1" path="res://player/player.tscn" id="2_0na56"]
@@ -6,6 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://ul3ua4g3cqvu" path="res://void/void.tscn" id="4_otxp6"]
 [ext_resource type="PackedScene" uid="uid://cthmjiydcw2et" path="res://intro_ui/intro_ui.tscn" id="5_mrv4t"]
 [ext_resource type="PackedScene" uid="uid://cis7c8rg75c6k" path="res://doctor/doctor.tscn" id="6_mi8og"]
+[ext_resource type="PackedScene" uid="uid://c4n18fnu8mho2" path="res://stages/cave.tscn" id="7_6tleh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udp0h"]
+size = Vector2(20, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jisx"]
+size = Vector2(20, 178)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wq7a"]
+size = Vector2(109, 20)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_8xtjb")
@@ -29,4 +39,32 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(126, 144)
 scale = Vector2(-1, 1)
 
+[node name="StartingCage" type="StaticBody2D" parent="."]
+position = Vector2(126, 144)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingCage"]
+position = Vector2(0, -56)
+shape = SubResource("RectangleShape2D_udp0h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StartingCage"]
+position = Vector2(89, -55)
+shape = SubResource("RectangleShape2D_0jisx")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StartingCage"]
+position = Vector2(43.5, -154)
+shape = SubResource("RectangleShape2D_5wq7a")
+
+[node name="Cave" parent="." instance=ExtResource("7_6tleh")]
+position = Vector2(1020, 0)
+
+[node name="Banana" parent="Cave" index="12" node_paths=PackedStringArray("player")]
+player = NodePath("../../Player")
+
+[node name="Banana2" parent="Cave" index="13" node_paths=PackedStringArray("player")]
+player = NodePath("../../Player")
+
 [connection signal="intro_done" from="IntroUi" to="." method="_on_intro_ui_intro_done"]
+
+[editable path="Cave"]

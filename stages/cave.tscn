@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4n18fnu8mho2"]
+
+[ext_resource type="Texture2D" uid="uid://s8p5sgoy8ppk" path="res://stages/cave.png" id="1_p3yy8"]
+[ext_resource type="PackedScene" uid="uid://fx0kfg7mek0" path="res://stages/platform96.tscn" id="2_1ijfe"]
+[ext_resource type="PackedScene" uid="uid://ydmgydjx2657" path="res://stages/platform64.tscn" id="3_5at0c"]
+[ext_resource type="PackedScene" uid="uid://craithgrw5kv4" path="res://stages/platform32.tscn" id="4_p52ef"]
+[ext_resource type="PackedScene" uid="uid://y5bpv8s0n0cs" path="res://stages/platform48.tscn" id="5_7l5k8"]
+[ext_resource type="PackedScene" uid="uid://dkql44m4bclnf" path="res://thingies/banana.tscn" id="6_8tfe0"]
+
+[node name="Cave" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(512, 90)
+scale = Vector2(4, 4)
+texture = ExtResource("1_p3yy8")
+
+[node name="Platform96" parent="." instance=ExtResource("2_1ijfe")]
+position = Vector2(81, 160)
+
+[node name="Platform64" parent="." instance=ExtResource("3_5at0c")]
+position = Vector2(174, 132)
+
+[node name="Platform65" parent="." instance=ExtResource("3_5at0c")]
+position = Vector2(265, 140)
+
+[node name="Platform32" parent="." instance=ExtResource("4_p52ef")]
+position = Vector2(355, 144)
+
+[node name="Platform48" parent="." instance=ExtResource("5_7l5k8")]
+position = Vector2(437, 123)
+
+[node name="Platform33" parent="." instance=ExtResource("4_p52ef")]
+position = Vector2(504, 113)
+
+[node name="Platform97" parent="." instance=ExtResource("2_1ijfe")]
+position = Vector2(605, 137)
+
+[node name="Platform34" parent="." instance=ExtResource("4_p52ef")]
+position = Vector2(704, 155)
+
+[node name="Platform66" parent="." instance=ExtResource("3_5at0c")]
+position = Vector2(775, 124)
+
+[node name="Platform67" parent="." instance=ExtResource("3_5at0c")]
+position = Vector2(882, 134)
+
+[node name="Platform35" parent="." instance=ExtResource("4_p52ef")]
+position = Vector2(971, 138)
+
+[node name="Banana" parent="." instance=ExtResource("6_8tfe0")]
+position = Vector2(626, 128)
+
+[node name="Banana2" parent="." instance=ExtResource("6_8tfe0")]
+position = Vector2(890, 125)

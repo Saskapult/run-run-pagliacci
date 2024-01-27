@@ -6,7 +6,8 @@ var time_to_scroll = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Void.visible = false
-	$IntroUi.do_intro()
+	#$IntroUi.do_intro()
+	_on_intro_ui_intro_done()
 	pass # Replace with function body.
 
 
@@ -34,5 +35,8 @@ func _process(delta):
 func _on_intro_ui_intro_done():
 	$Void.visible = true
 	time_to_scroll = true
+	$StartingCage.process_mode = Node.PROCESS_MODE_DISABLED
 	#$IntroUi.visible = false
 	pass # Replace with function body.
+
+
