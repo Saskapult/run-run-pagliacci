@@ -20,3 +20,4 @@ func _on_area_2d_body_entered(body):
 	if body == player:
 		print("Player touched void!")
 		player_in_void.emit()
+		

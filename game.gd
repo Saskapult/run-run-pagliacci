@@ -2,12 +2,15 @@ extends Node2D
 
 
 var time_to_scroll = false
+var do_intro = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Void.visible = false
-	#$IntroUi.do_intro()
-	_on_intro_ui_intro_done()
+	if do_intro:
+		$IntroUi.do_intro()
+	else:
+		_on_intro_ui_intro_done()
 	pass # Replace with function body.
 
 
@@ -39,4 +42,17 @@ func _on_intro_ui_intro_done():
 	#$IntroUi.visible = false
 	pass # Replace with function body.
 
+
+var menu = preload("res://restart_ui/restart_ui.tscn")
+func _on_void_player_in_void():
+	print("Goto fail scene")
+	var instance = menu.instantiate()
+	get_tree().root.add_child(instance)
+	get_tree().root.remove_child(self)
+
+
+func end():
+	print("end game")
+	$Void.visible = false
+	time_to_scroll = false
 

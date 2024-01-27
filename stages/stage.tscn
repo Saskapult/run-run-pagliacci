@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk8244rhxavs0"]
+
+[ext_resource type="Texture2D" uid="uid://f4api6n5fygt" path="res://stages/stage.png" id="1_127p3"]
+[ext_resource type="PackedScene" uid="uid://ctja3m355d30m" path="res://thingies/spotlight.tscn" id="2_bm4jt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f7mn"]
+size = Vector2(1025, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcp1x"]
+size = Vector2(20, 172)
+
+[node name="Stage" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(512, 90)
+scale = Vector2(4, 4)
+texture = ExtResource("1_127p3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(512.5, 176)
+shape = SubResource("RectangleShape2D_6f7mn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(833, 80)
+shape = SubResource("RectangleShape2D_lcp1x")
+
+[node name="Spotlight" parent="." instance=ExtResource("2_bm4jt")]
+position = Vector2(802, 178)

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctja3m355d30m"]
+
+[ext_resource type="Script" path="res://thingies/spotlight.gd" id="1_1y32n"]
+[ext_resource type="Texture2D" uid="uid://cynr4fxobq5jr" path="res://thingies/spotlight.png" id="1_ed7bx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2s5k"]
+size = Vector2(20, 51)
+
+[node name="Spotlight" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_1y32n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+texture = ExtResource("1_ed7bx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, -25.5)
+shape = SubResource("RectangleShape2D_w2s5k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3l86tqbc2k1f"]
+
+[ext_resource type="Texture2D" uid="uid://cv7hiurphp4m4" path="res://stages/parking_lot.png" id="1_5qkqj"]
+[ext_resource type="PackedScene" uid="uid://4gi7aca4n2wk" path="res://thingies/shopper.tscn" id="2_2irvd"]
+[ext_resource type="PackedScene" uid="uid://cnd3exu8oj5y" path="res://thingies/shopping_cart.tscn" id="3_eq7dn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyc4c"]
+size = Vector2(1025, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_feff4"]
+size = Vector2(20, 235)
+
+[node name="ParkingLot" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(512, 88)
+scale = Vector2(4, 4)
+texture = ExtResource("1_5qkqj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(512.5, 176)
+shape = SubResource("RectangleShape2D_nyc4c")
+
+[node name="Shopper" parent="." node_paths=PackedStringArray("cart") instance=ExtResource("2_2irvd")]
+position = Vector2(264, 148)
+cart = NodePath("ShoppingCart")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shopper"]
+position = Vector2(-202, -98.5)
+shape = SubResource("RectangleShape2D_feff4")
+
+[node name="ShoppingCart" parent="Shopper" instance=ExtResource("3_eq7dn")]
+position = Vector2(-32, 19)
+
+[node name="Shopper2" parent="." node_paths=PackedStringArray("cart") instance=ExtResource("2_2irvd")]
+position = Vector2(413, 123)
+cart = NodePath("ShoppingCart")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shopper2"]
+position = Vector2(-211, -9)
+shape = SubResource("RectangleShape2D_feff4")
+
+[node name="ShoppingCart" parent="Shopper2" instance=ExtResource("3_eq7dn")]
+position = Vector2(-32, 19)
+
+[node name="Shopper3" parent="." node_paths=PackedStringArray("cart") instance=ExtResource("2_2irvd")]
+position = Vector2(654, 121)
+cart = NodePath("ShoppingCart")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shopper3"]
+position = Vector2(-251, 0)
+shape = SubResource("RectangleShape2D_feff4")
+
+[node name="ShoppingCart" parent="Shopper3" instance=ExtResource("3_eq7dn")]
+position = Vector2(-32, 19)
+
+[node name="Shopper4" parent="." node_paths=PackedStringArray("cart") instance=ExtResource("2_2irvd")]
+position = Vector2(897, 121)
+cart = NodePath("ShoppingCart")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shopper4"]
+position = Vector2(-236, -9)
+shape = SubResource("RectangleShape2D_feff4")
+
+[node name="ShoppingCart" parent="Shopper4" instance=ExtResource("3_eq7dn")]
+position = Vector2(-47, 32)

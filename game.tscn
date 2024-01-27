@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b10drgg7lhb3e"]
+[gd_scene load_steps=14 format=3 uid="uid://b10drgg7lhb3e"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_8xtjb"]
 [ext_resource type="PackedScene" uid="uid://jfym5mhm1mf1" path="res://player/player.tscn" id="2_0na56"]
@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://ul3ua4g3cqvu" path="res://void/void.tscn" id="4_otxp6"]
 [ext_resource type="PackedScene" uid="uid://cthmjiydcw2et" path="res://intro_ui/intro_ui.tscn" id="5_mrv4t"]
 [ext_resource type="PackedScene" uid="uid://cis7c8rg75c6k" path="res://doctor/doctor.tscn" id="6_mi8og"]
+[ext_resource type="PackedScene" uid="uid://dkql44m4bclnf" path="res://thingies/banana.tscn" id="7_2cryy"]
 [ext_resource type="PackedScene" uid="uid://c4n18fnu8mho2" path="res://stages/cave.tscn" id="7_6tleh"]
+[ext_resource type="PackedScene" uid="uid://c3l86tqbc2k1f" path="res://stages/parking_lot.tscn" id="9_d38pb"]
+[ext_resource type="PackedScene" uid="uid://bk8244rhxavs0" path="res://stages/stage.tscn" id="10_ilpeb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udp0h"]
 size = Vector2(20, 180)
@@ -24,7 +27,7 @@ script = ExtResource("1_8xtjb")
 offset = Vector2(160, 90)
 
 [node name="Player" parent="." instance=ExtResource("2_0na56")]
-position = Vector2(90, 141)
+position = Vector2(81, 159)
 
 [node name="Office" parent="." instance=ExtResource("3_rsu58")]
 
@@ -65,6 +68,18 @@ player = NodePath("../../Player")
 [node name="Banana2" parent="Cave" index="13" node_paths=PackedStringArray("player")]
 player = NodePath("../../Player")
 
+[node name="ParkingLot" parent="." instance=ExtResource("9_d38pb")]
+position = Vector2(2044, 2)
+
+[node name="Stage" parent="." instance=ExtResource("10_ilpeb")]
+position = Vector2(3067, 0)
+
+[node name="Banana" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_2cryy")]
+position = Vector2(726, 161)
+player = NodePath("../Player")
+
+[connection signal="player_in_void" from="Void" to="." method="_on_void_player_in_void"]
 [connection signal="intro_done" from="IntroUi" to="." method="_on_intro_ui_intro_done"]
 
 [editable path="Cave"]
+[editable path="ParkingLot"]

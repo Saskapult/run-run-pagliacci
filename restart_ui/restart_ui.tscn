@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf8v7m4rrfi31"]
+
+[ext_resource type="Script" path="res://restart_ui/restart_ui.gd" id="1_bm74a"]
+[ext_resource type="Texture2D" uid="uid://d122i6j5dgt3q" path="res://failbackground.png" id="2_nf2mn"]
+
+[node name="RestartUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bm74a")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(9.12631, 5.46065)
+texture = ExtResource("2_nf2mn")
+
+[node name="Cried" type="Label" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 38.0
+offset_right = 212.0
+offset_bottom = 61.0
+text = "Cried in public!"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 83.0
+offset_right = 282.0
+offset_bottom = 149.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RestartButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Intro?"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnd3exu8oj5y"]
+
+[ext_resource type="Texture2D" uid="uid://d7607oi11n4v" path="res://thingies/shopping_cart.png" id="1_hs13o"]
+[ext_resource type="Script" path="res://thingies/shopping_cart.gd" id="1_n7684"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hii3d"]
+size = Vector2(4, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83olm"]
+size = Vector2(15, 3)
+
+[node name="ShoppingCart" type="Node2D"]
+position = Vector2(0, 1)
+script = ExtResource("1_n7684")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -16)
+texture = ExtResource("1_hs13o")
+
+[node name="HittingArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HittingArea"]
+position = Vector2(-8, -6)
+shape = SubResource("RectangleShape2D_hii3d")
+
+[node name="RideArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RideArea"]
+position = Vector2(1.5, -13.5)
+shape = SubResource("RectangleShape2D_83olm")
+
+[connection signal="body_entered" from="HittingArea" to="." method="_on_hitting_area_body_entered"]
+[connection signal="body_entered" from="RideArea" to="." method="_on_ride_area_body_entered"]

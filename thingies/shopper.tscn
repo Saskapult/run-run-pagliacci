@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://4gi7aca4n2wk"]
+
+[ext_resource type="Script" path="res://thingies/shopper.gd" id="1_p83le"]
+
+[node name="Shopper" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_p83le")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
