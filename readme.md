@@ -1,5 +1,5 @@
 # Run Run Pagliacci!
-TODO: Screenshot
+![The pixel art spritesheet of a clown with the words Run Run Pagliacci above it](loading.png)
 
 This was developed for the Global Game Jam 2024.
 

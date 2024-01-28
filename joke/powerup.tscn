@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://df4k1bxxhs8xn"]
+
+[ext_resource type="Texture2D" uid="uid://bfkcjvg3qacr7" path="res://joke/powerup.png" id="1_hgiub"]
+[ext_resource type="Script" path="res://joke/powerup.gd" id="1_t4xrm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwf8f"]
+atlas = ExtResource("1_hgiub")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxef3"]
+atlas = ExtResource("1_hgiub")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fs4hx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwf8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxef3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ebcnf"]
+radius = 6.0
+
+[node name="Powerup" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_t4xrm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fs4hx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ebcnf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

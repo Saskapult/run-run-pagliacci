@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 200.0
-const JUMP_VELOCITY = -300.0
+var SPEED = 200.0
+var JUMP_VELOCITY = -300.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -23,6 +23,13 @@ func perform():
 	print("Perform")
 	move_enabled = false
 	get_parent().end()
+
+func speed_boost():
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "SPEED", 400.0, 1.0)
+	tween.tween_interval(5.0)
+	tween.tween_property(self, "SPEED", 200.0, 1.0)
+	tween.tween_callback(func p(): print("Speedup done"))
 
 
 func update_animations():

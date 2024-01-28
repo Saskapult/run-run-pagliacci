@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn4ldwykwfm15"]
+
+[ext_resource type="Script" path="res://joke/joke01.gd" id="1_4bvp1"]
+
+[node name="Joke01" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4bvp1")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 72.0
+offset_right = 298.0
+offset_bottom = 95.0
+text = "Why did the chicken cross the road?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 109.0
+offset_right = 447.0
+offset_bottom = 175.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Fox" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "To avoid a fox? "
+
+[node name="Fast" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "To get to destination faster! "
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Other" type="Button" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "To get to the other side! "
+
+[node name="Idk" type="Button" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "I... I don't know. "
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Fox" to="." method="_on_fox_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Fast" to="." method="_on_fast_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Other" to="." method="_on_other_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Idk" to="." method="_on_idk_pressed"]

@@ -86,6 +86,7 @@ texture_filter = 2
 position = Vector2(37.5, 90)
 scale = Vector2(5.0625, 4.13333)
 sprite_frames = SubResource("SpriteFrames_8dqqb")
+frame_progress = 0.629143
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

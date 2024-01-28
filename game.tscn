@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b10drgg7lhb3e"]
+[gd_scene load_steps=19 format=3 uid="uid://b10drgg7lhb3e"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_8xtjb"]
 [ext_resource type="PackedScene" uid="uid://jfym5mhm1mf1" path="res://player/player.tscn" id="2_0na56"]
@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://c4n18fnu8mho2" path="res://stages/cave.tscn" id="7_6tleh"]
 [ext_resource type="PackedScene" uid="uid://c3l86tqbc2k1f" path="res://stages/parking_lot.tscn" id="9_d38pb"]
 [ext_resource type="PackedScene" uid="uid://bk8244rhxavs0" path="res://stages/stage.tscn" id="10_ilpeb"]
+[ext_resource type="AudioStream" uid="uid://dymkrhhqqn4g4" path="res://shepard.ogg" id="11_b501t"]
+[ext_resource type="PackedScene" uid="uid://df4k1bxxhs8xn" path="res://joke/powerup.tscn" id="12_2jpwv"]
+[ext_resource type="PackedScene" uid="uid://dn4ldwykwfm15" path="res://joke/joke01.tscn" id="13_qdk8j"]
+[ext_resource type="PackedScene" uid="uid://4rqge53tyf4f" path="res://joke/joke02.tscn" id="14_jvsuk"]
+[ext_resource type="PackedScene" uid="uid://bu703kixmpfg5" path="res://joke/joke03.tscn" id="15_ek8xu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udp0h"]
 size = Vector2(20, 180)
@@ -77,6 +82,44 @@ position = Vector2(3067, 0)
 [node name="Banana" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_2cryy")]
 position = Vector2(726, 161)
 player = NodePath("../Player")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_b501t")
+
+[node name="Powerup01" parent="." node_paths=PackedStringArray("joke") instance=ExtResource("12_2jpwv")]
+position = Vector2(780, 157)
+joke = NodePath("../CanvasLayer/Joke01")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Joke01" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("13_qdk8j")]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+player = NodePath("../../Player")
+
+[node name="Joke02" parent="CanvasLayer" instance=ExtResource("14_jvsuk")]
+
+[node name="Joke03" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("15_ek8xu")]
+player = NodePath("../../Player")
+
+[node name="Powerup02" parent="." node_paths=PackedStringArray("joke") instance=ExtResource("12_2jpwv")]
+position = Vector2(1810, 108)
+joke = NodePath("../CanvasLayer/Joke02")
+
+[node name="Banana2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_2cryy")]
+position = Vector2(2335, 163)
+player = NodePath("../Player")
+
+[node name="Banana3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_2cryy")]
+position = Vector2(2599, 164)
+player = NodePath("../Player")
+
+[node name="Powerup03" parent="." node_paths=PackedStringArray("joke") instance=ExtResource("12_2jpwv")]
+position = Vector2(3411, 156)
+joke = NodePath("../CanvasLayer/Joke03")
 
 [connection signal="player_in_void" from="Void" to="." method="_on_void_player_in_void"]
 [connection signal="intro_done" from="IntroUi" to="." method="_on_intro_ui_intro_done"]

@@ -32,15 +32,13 @@ func _process(delta):
 	update_void_position()
 	if time_to_scroll:
 		$Camera2D.offset.x += 1
-	pass
 
 
 func _on_intro_ui_intro_done():
 	$Void.visible = true
 	time_to_scroll = true
 	$StartingCage.process_mode = Node.PROCESS_MODE_DISABLED
-	#$IntroUi.visible = false
-	pass # Replace with function body.
+	$AudioStreamPlayer.playing = true
 
 
 var menu = preload("res://restart_ui/restart_ui.tscn")
@@ -50,9 +48,17 @@ func _on_void_player_in_void():
 	get_tree().root.add_child(instance)
 	get_tree().root.remove_child(self)
 
+func pause():
+	time_to_scroll = false
+	$Player.move_enabled = false
+
+func resume():
+	time_to_scroll = true
+	$Player.move_enabled = true
 
 func end():
 	print("end game")
 	$Void.visible = false
 	time_to_scroll = false
+	$AudioStreamPlayer.playing = false
 

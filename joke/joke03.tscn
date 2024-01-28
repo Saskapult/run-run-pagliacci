@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu703kixmpfg5"]
+
+[ext_resource type="Script" path="res://joke/joke03.gd" id="1_a3qea"]
+
+[node name="Joke02" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a3qea")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 46.0
+offset_right = 393.0
+offset_bottom = 95.0
+text = "Why do divers fall off 
+the boat backwards? "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 104.0
+offset_right = 443.0
+offset_bottom = 170.0
+
+[node name="Penguin" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Because if they fell forward
+they'd still be on the boat!"
+
+[node name="Robin" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Because they would rather 
+fall blindly into the abyss
+than face it directly "
+
+[connection signal="pressed" from="HBoxContainer/Penguin" to="." method="_on_fox_pressed"]
+[connection signal="pressed" from="HBoxContainer/Robin" to="." method="_on_other_pressed"]
