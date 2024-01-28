@@ -61,4 +61,13 @@ func end():
 	$Void.visible = false
 	time_to_scroll = false
 	$AudioStreamPlayer.playing = false
+	var tween = get_tree().create_tween()
+	tween.tween_interval(5.0)
+	tween.tween_callback(main_menu)
+
+func main_menu():
+	var men = preload("res://main_menu/main_menu.tscn")
+	var instance = men.instantiate()
+	get_tree().root.add_child(instance)
+	get_tree().root.remove_child(self)
 

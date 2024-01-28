@@ -75,6 +75,7 @@ func signal_done():
 
 
 func do_intro():
+	$IntroBeginAudio.playing = true
 	pag1()
 
 # Called when the node enters the scene tree for the first time.

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dn4ldwykwfm15"]
+[gd_scene load_steps=4 format=3 uid="uid://dn4ldwykwfm15"]
 
 [ext_resource type="Script" path="res://joke/joke01.gd" id="1_4bvp1"]
+[ext_resource type="AudioStream" uid="uid://big8pucm1r08o" path="res://sounds/ooooo.ogg" id="2_e5f2v"]
+[ext_resource type="AudioStream" uid="uid://w48xbc5cped4" path="res://sounds/oh.ogg" id="3_iys8o"]
 
 [node name="Joke01" type="Control"]
 layout_mode = 3
@@ -51,6 +53,12 @@ text = "To get to the other side! "
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "I... I don't know. "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_e5f2v")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_iys8o")
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Fox" to="." method="_on_fox_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Fast" to="." method="_on_fast_pressed"]

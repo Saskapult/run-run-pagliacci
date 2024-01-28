@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://4rqge53tyf4f"]
+[gd_scene load_steps=4 format=3 uid="uid://4rqge53tyf4f"]
 
 [ext_resource type="Script" path="res://joke/joke02.gd" id="1_c5cxy"]
+[ext_resource type="AudioStream" uid="uid://big8pucm1r08o" path="res://sounds/ooooo.ogg" id="2_b8a6s"]
+[ext_resource type="AudioStream" uid="uid://w48xbc5cped4" path="res://sounds/oh.ogg" id="3_2mpn4"]
 
 [node name="Joke02" type="Control"]
 layout_mode = 3
@@ -52,6 +54,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "The crushing realization that
  you will never be enough"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_b8a6s")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2mpn4")
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Penguin" to="." method="_on_fox_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Carrot" to="." method="_on_fast_pressed"]

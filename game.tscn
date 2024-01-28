@@ -32,7 +32,7 @@ script = ExtResource("1_8xtjb")
 offset = Vector2(160, 90)
 
 [node name="Player" parent="." instance=ExtResource("2_0na56")]
-position = Vector2(81, 159)
+position = Vector2(80, 159)
 
 [node name="Office" parent="." instance=ExtResource("3_rsu58")]
 
@@ -100,7 +100,8 @@ offset_right = 1.0
 offset_bottom = 1.0
 player = NodePath("../../Player")
 
-[node name="Joke02" parent="CanvasLayer" instance=ExtResource("14_jvsuk")]
+[node name="Joke02" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("14_jvsuk")]
+player = NodePath("../../Player")
 
 [node name="Joke03" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("15_ek8xu")]
 player = NodePath("../../Player")

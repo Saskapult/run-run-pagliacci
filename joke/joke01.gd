@@ -9,6 +9,7 @@ func _ready():
 
 func do_joke():
 	show()
+	$AudioStreamPlayer.playing = true
 	
 	get_tree().paused = true
 	$HBoxContainer/VBoxContainer/Fox.visible = false
@@ -49,4 +50,5 @@ func _on_idk_pressed():
 
 func done_joke():
 	get_tree().paused = false
+	$AudioStreamPlayer2.playing = true
 	hide()

@@ -1,7 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://jfym5mhm1mf1"]
+[gd_scene load_steps=14 format=3 uid="uid://jfym5mhm1mf1"]
 
 [ext_resource type="Texture2D" uid="uid://dag5d3uemcrr6" path="res://player/pagliacci.png" id="1_2vrmi"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_cw5a5"]
+[ext_resource type="AudioStream" uid="uid://w48xbc5cped4" path="res://sounds/oh.ogg" id="3_tmohx"]
+[ext_resource type="AudioStream" uid="uid://bl4xvh5hc4t8u" path="res://sounds/wehe.ogg" id="7_r8kqx"]
+[ext_resource type="AudioStream" uid="uid://221wgghms1wo" path="res://sounds/hmm.ogg" id="8_t153s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvtes"]
 size = Vector2(12, 28)
@@ -91,3 +94,12 @@ texture_filter = 1
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_85ruw")
 animation = &"smile"
+
+[node name="HitAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tmohx")
+
+[node name="WinAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_r8kqx")
+
+[node name="JumpAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_t153s")

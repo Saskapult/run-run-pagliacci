@@ -11,6 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var fallen = false
 func fall():
 	fallen = true
+	$HitAudio.playing = true
 	var tween = get_tree().create_tween()
 	tween.tween_interval(1.0)
 	tween.tween_callback(unfall)
@@ -22,6 +23,7 @@ var move_enabled = true
 func perform():
 	print("Perform")
 	move_enabled = false
+	$WinAudio.playing = true
 	get_parent().end()
 
 func speed_boost():
@@ -58,6 +60,7 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not fallen and move_enabled:
 		velocity.y = JUMP_VELOCITY
+		$JumpAudio.playing = true
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

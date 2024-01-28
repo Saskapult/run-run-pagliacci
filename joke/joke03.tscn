@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu703kixmpfg5"]
+[gd_scene load_steps=4 format=3 uid="uid://bu703kixmpfg5"]
 
 [ext_resource type="Script" path="res://joke/joke03.gd" id="1_a3qea"]
+[ext_resource type="AudioStream" uid="uid://big8pucm1r08o" path="res://sounds/ooooo.ogg" id="2_08bxm"]
+[ext_resource type="AudioStream" uid="uid://w48xbc5cped4" path="res://sounds/oh.ogg" id="3_fpwkn"]
 
 [node name="Joke02" type="Control"]
 layout_mode = 3
@@ -39,6 +41,12 @@ theme_override_font_sizes/font_size = 10
 text = "Because they would rather 
 fall blindly into the abyss
 than face it directly "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_08bxm")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fpwkn")
 
 [connection signal="pressed" from="HBoxContainer/Penguin" to="." method="_on_fox_pressed"]
 [connection signal="pressed" from="HBoxContainer/Robin" to="." method="_on_other_pressed"]

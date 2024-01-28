@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf8v7m4rrfi31"]
+[gd_scene load_steps=4 format=3 uid="uid://cf8v7m4rrfi31"]
 
 [ext_resource type="Script" path="res://restart_ui/restart_ui.gd" id="1_bm74a"]
 [ext_resource type="Texture2D" uid="uid://d122i6j5dgt3q" path="res://failbackground.png" id="2_nf2mn"]
+[ext_resource type="AudioStream" uid="uid://bxmw3gfufsrpi" path="res://sounds/waaa.ogg" id="3_1iqqb"]
 
 [node name="RestartUi" type="Control"]
 layout_mode = 3
@@ -48,6 +49,9 @@ text = "Intro?"
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1iqqb")
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
