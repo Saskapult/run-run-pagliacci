@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://ic320evkcsn3"]
 
-[ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_ethl4"]
 [ext_resource type="Texture2D" uid="uid://1cfb5fivpp5r" path="res://menuthing.png" id="1_fclc0"]
 [ext_resource type="Texture2D" uid="uid://bn6ojpcyrlj75" path="res://menucolour.png" id="1_iqflg"]
+[ext_resource type="Script" path="res://main_menu/gggggg.gd" id="1_m864o"]
 [ext_resource type="Texture2D" uid="uid://bg638fw3k1484" path="res://icon.png" id="3_38wug"]
 
 [node name="MainMenu" type="Control"]
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ethl4")
+script = ExtResource("1_m864o")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0

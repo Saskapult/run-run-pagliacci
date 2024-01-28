@@ -27,7 +27,7 @@ func update_void_position():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta): 
+func _process(_delta): 
 	move_camera_if_player_near_edge()
 	update_void_position()
 	if time_to_scroll:
@@ -41,12 +41,13 @@ func _on_intro_ui_intro_done():
 	$AudioStreamPlayer.playing = true
 
 
-var menu = preload("res://restart_ui/restart_ui.tscn")
+var menu = load("res://restart_ui/restart_ui.tscn")
 func _on_void_player_in_void():
 	print("Goto fail scene")
 	var instance = menu.instantiate()
 	get_tree().root.add_child(instance)
-	get_tree().root.remove_child(self)
+	queue_free()
+	#get_tree().root.remove_child(self)
 
 func pause():
 	time_to_scroll = false

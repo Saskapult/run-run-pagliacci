@@ -3,7 +3,7 @@ extends Area2D
 
 @export var joke: Control
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	print("Player powerup")
 	$AnimatedSprite2D.frame = 2
 	var tween = get_tree().create_tween()

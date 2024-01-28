@@ -84,7 +84,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	#print(char_mask)
 	#print(dialogue_text.substr(0, char_mask))
 	$Dialogue.text = dialogue_text.substr(0, char_mask)

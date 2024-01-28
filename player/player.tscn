@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://jfym5mhm1mf1"]
+[gd_scene load_steps=15 format=3 uid="uid://jfym5mhm1mf1"]
 
 [ext_resource type="Texture2D" uid="uid://dag5d3uemcrr6" path="res://player/pagliacci.png" id="1_2vrmi"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_cw5a5"]
 [ext_resource type="AudioStream" uid="uid://w48xbc5cped4" path="res://sounds/oh.ogg" id="3_tmohx"]
+[ext_resource type="Texture2D" uid="uid://d7607oi11n4v" path="res://thingies/shopping_cart.png" id="6_15y0s"]
 [ext_resource type="AudioStream" uid="uid://bl4xvh5hc4t8u" path="res://sounds/wehe.ogg" id="7_r8kqx"]
 [ext_resource type="AudioStream" uid="uid://221wgghms1wo" path="res://sounds/hmm.ogg" id="8_t153s"]
 
@@ -103,3 +104,10 @@ stream = ExtResource("7_r8kqx")
 
 [node name="JumpAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_t153s")
+
+[node name="CartSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -14)
+scale = Vector2(-1, 1)
+texture = ExtResource("6_15y0s")
+
+[connection signal="ready" from="." to="." method="_on_ready"]
