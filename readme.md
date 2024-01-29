@@ -1,7 +1,7 @@
 # Run Run Pagliacci!
 ![The pixel art spritesheet of a clown with the words Run Run Pagliacci above it](loading.png)
 
-This was developed for the Global Game Jam 2024.
+Developed for Global Game Jam 2024 - Theme "Make Me Laugh"
 
 Pagliacci is sad clown.
 He visits a doctor to help make him happy.
