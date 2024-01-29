@@ -8,3 +8,6 @@ He visits a doctor to help make him happy.
 The doctor tells him to go see Pagliacci, because Pagliacci can make anyone laugh.
 But he is Pagliacci!
 Now he must outrun his sadness and cheer himself up.
+
+- Play on [itch.io](https://hedge-lord.itch.io/run-run-pagliacci)
+- View on [Global Game Jam](https://globalgamejam.org/games/2024/run-run-pagliacci-6)
